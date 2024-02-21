@@ -1,6 +1,6 @@
-// email_data.json
 {
   "email_server": "mail.torulog.com.br",
   "email_username": "severino@torulog.com.br",
-  "email_password": "Tr37880693!"
+  "email_password": "Tr37880693!",
+  "valid_domains": ["torulog.com.br"]
 }

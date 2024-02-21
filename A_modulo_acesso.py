@@ -1,11 +1,11 @@
-# email_client.py
 import imaplib
 import email
 import json
+from C_Modulo_filtro import EmailFilter
 
 class EmailClient:
     def __init__(self):
-        with open('acesso.json') as f:
+        with open('B_email_data.json') as f:
             email_data = json.load(f)
         self.mail = imaplib.IMAP4_SSL(email_data['email_server'])
         self.mail.login(email_data['email_username'], email_data['email_password'])
@@ -25,11 +25,8 @@ class EmailClient:
     def logout(self):
         self.mail.logout()
 
-# Teste de Acesso ao Servidor de E-mails
 if __name__ == "__main__":
     client = EmailClient()
     emails = client.fetch_emails()
-    print("E-mails encontrados:")
-    for email in emails:
-        print(email['From'])
     client.logout()
+    print("Conexão bem-sucedida com o servidor IMAP.")
